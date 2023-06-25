@@ -1,0 +1,37 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.themeSwitchBtn {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    color: #6002ee;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .header {
+    padding: 1rem 2rem;
+
+    & > h2 {
+      font-size: 1rem;
+    }
+  }
+
+  .themeSwitchBtn {
+    & > span {
+      font-size: 0.8rem;
+    }
+  }
+}

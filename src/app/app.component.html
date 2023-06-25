@@ -1,0 +1,11 @@
+<div class="mat-app-background" [ngClass]="darkModeActive ? 'darkMode' : ''">
+  <div class="header max-width">
+    <h2>Where in the world?</h2>
+    <div class="themeSwitchBtn" (click)="toggleTheme()">
+      <mat-icon style="transform: rotate(-220deg)">brightness_3</mat-icon>
+      <span> {{ this.darkModeActive ? 'Light Mode' : 'Dark Mode' }}</span>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>
+

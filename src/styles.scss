@@ -1,0 +1,65 @@
+@use "./styles/_colors.scss" as theme;
+@use "@angular/material" as mat;
+@include mat.core();
+
+// Light Theme
+$country-gk-primary: mat.define-palette(theme.$light-primary, 500);
+$country-gk-accent: mat.define-palette(theme.$light-accent, 500);
+$country-gk-warn: mat.define-palette(mat.$red-palette);
+
+$country-gk-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $country-gk-primary,
+      accent: $country-gk-accent,
+      warn: $country-gk-warn,
+    ),
+  )
+);
+
+// Dark Theme
+$country-gk-dark-primary: mat.define-palette(theme.$dark-primary, 500);
+$country-gk-dark-accent: mat.define-palette(theme.$light-accent, 500);
+
+$country-gk-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $country-gk-dark-primary,
+      accent: $country-gk-dark-accent,
+      warn: $country-gk-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($country-gk-theme);
+.darkMode {
+  @include mat.all-component-colors($country-gk-dark-theme);
+}
+
+@font-face {
+  font-family: NunitoSans;
+  src: url("./assets/NunitoSans-Regular.ttf");
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  cursor: default;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: NunitoSans;
+  font-weight: 300;
+}
+
+// .max-width {
+//   max-width: 1440px;
+// }
+
+.full-width {
+  width: 100%;
+}
+.full-height {
+  height: 100%;
+}

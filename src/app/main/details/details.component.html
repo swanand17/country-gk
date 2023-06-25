@@ -1,0 +1,35 @@
+<div class="details-container max-width">
+  <button mat-raised-button color="accent" (click)="backCalled.emit(true);">
+    <mat-icon>arrow_back</mat-icon>
+    &nbsp;Back
+  </button>
+
+  <div class="details-body max-width">
+    <img [src]="selectedCountry.flags.png">
+    <div class="selectedCountry-info">
+      <h1>{{ selectedCountry.name }}</h1>
+      <div class="selectedCountry-info-pt1n2">
+        <div class="selectedCountry-info-pt1">
+          <span><strong>Native Name:</strong> {{ selectedCountry.nativeName }}</span>
+          <span><strong>Population:</strong> {{ selectedCountry.population }}</span>
+          <span><strong>Region:</strong> {{ selectedCountry.region }}</span>
+          <span><strong>Sub Region:</strong> {{ selectedCountry.subregion }}</span>
+          <span *ngIf="selectedCountry.capital"><strong>Capital:</strong> {{ selectedCountry.capital }}</span>
+        </div>
+        <div class="selectedCountry-info-pt2">
+          <span><strong>Top Level Domain:</strong> {{ selectedCountry.topLevelDomain }}</span>
+          <span><strong>Currencies:</strong> {{ currencies.toString() }}</span>
+          <span><strong>Languages:</strong> {{ languages.toString() }}</span>
+          </div>
+      </div>
+      <div class="selectedCountry-info-pt3" *ngIf="borderCountries.length > 0">
+            <span>Border Countries:</span>
+        <div class="borderCountry-list">
+          <span *ngFor="let borderCountry of borderCountries" class="borderCountry-box">
+            {{ borderCountry }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

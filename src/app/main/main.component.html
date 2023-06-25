@@ -1,0 +1,32 @@
+<div class="main-container full-width full-height">
+  <div class="main-body max-width" *ngIf="!selectedCountry">
+    <div class="main-body-controls max-width">
+
+      <mat-form-field appearance="outline" color="accent">
+        <input matInput type="text" aria-placeholder="Search for a country" [formControl]="searchCountryFC" placeholder="Search for a country...">
+        <mat-icon matPrefix>search</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" color="accent">
+        <mat-select [formControl]="filterByRegionFC" (selectionChange)="regionChanged()"  placeholder="Filter by Region">
+          <mat-option [value]="region" *ngFor="let region of regions">{{ region }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+    </div>
+    <div class="main-body-list max-width">
+      <mat-card class="main-body-list-item" *ngFor="let country of countries" (click)="selectCountry(country)">
+        <img mat-card-image [src]="country.flags.png" [alt]="country.name + ' flag'"/>
+        <mat-card-content>
+          <h3>{{ country.name.length > 45 ? country.name.substring(45,0) + '...' : country.name }}</h3>
+          <p><strong>Population:</strong> {{ country.population }}</p>
+          <p><strong>Region:</strong> {{ country.region }}</p>
+          <p [style.visibility]="country.capital ? 'visible' : 'hidden' " ><strong>Capital:</strong> {{ country?.capital }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <app-details *ngIf="selectedCountry" [selectedCountry]="selectedCountry" 
+  [borderCountries]="borderCountries"
+  (backCalled)="backCalled()"></app-details>
+</div>
